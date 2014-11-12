@@ -1,57 +1,97 @@
 ;(function () {
     'use strict';
 
-    var CURRENT_STEP_CSS_NAME = 'current',
-        WIZARD_IS_OPEN_CSS_NAME = 'open';
+    var CURRENT_STEP_CSS_CLASSNAME = 'current',
+        WIZARD_IS_OPEN_CSS_CLASSNAME = 'open',
 
-    function wizardDirectiveFactory() {
+        btnLabel = {
+            cancel: 'Cancel',
+            next: 'Next',
+            back: 'Back',
+            finish: 'Finish'
+        };
+
+    function wizardDirectiveFactory(events) {
         return {
             replace: true,
             transclude: true,
             templateUrl: '/html/wizard.html',
+
             link: function(scope, element, attrs, controllers) {
                 var opened = false,
                     contentContainer = angular.element(element[0].children[1]),
                     currentIndex = 0,
                     steps = contentContainer[0].children,
                     stepsCount = contentContainer[0].childElementCount;
-                
-                element.addClass(WIZARD_IS_OPEN_CSS_NAME);
 
                 function unsetCurrent() {
-                    angular.element(steps[currentIndex]).removeClass(CURRENT_STEP_CSS_NAME);
+                    angular.element(steps[currentIndex]).
+                        removeClass(CURRENT_STEP_CSS_CLASSNAME);
                 }
 
                 function setCurrent() {
-                    angular.element(steps[currentIndex]).addClass(CURRENT_STEP_CSS_NAME);
+                    angular.element(steps[currentIndex]).
+                        addClass(CURRENT_STEP_CSS_CLASSNAME);
                 }
 
-                scope.back = function () {
+                function switchTo(index) {
                     unsetCurrent();
-                    currentIndex = Math.max(currentIndex - 1, 0);
+                    currentIndex = index;
                     setCurrent();
+                    updateBtnState();
                 }
 
-                scope.next = function () {
-                    unsetCurrent();
-                    currentIndex = Math.min(currentIndex + 1, stepsCount - 1);
-                    setCurrent();
+                function updateBtnState() {
+                    scope.backBtnDisabled = currentIndex === 0;
+                    scope.isLastStep = currentIndex === stepsCount - 1;
                 }
 
-                scope.open = function () {
-                    unsetCurrent();
-                    currentIndex = 0;
-                    setCurrent();
-                    element.addClass(WIZARD_IS_OPEN_CSS_NAME);
+                function open() {
+                    switchTo(0);
+                    scope.show = true;
                 }
 
-                scope.cancel = function () {
-                    element.removeClass(WIZARD_IS_OPEN_CSS_NAME);
+                function close() {
+                    scope.show = false;
+                    scope.$emit(events.WIZARD_CLOSE);
                 }
+
+                function back() {
+                    switchTo(Math.max(currentIndex - 1, 0));
+                }
+
+                function next() {
+                    if (scope.isLastStep) {
+                        close();
+                    } else {
+                        switchTo(Math.min(currentIndex + 1, stepsCount - 1));
+                    }
+                }
+
+                function cancel() {
+                    close();
+                }
+
+                scope.cancelBtnDisabled = false;
+                scope.backBtnDisabled = false;
+                scope.nextBtnDisabled = false;
+                scope.isLastStep = false;
+                scope.show = false;
+
+                scope.open = open;
+                scope.back = back;
+                scope.next = next;
+                scope.cancel = cancel;
+                scope.btnLabel = btnLabel;
+
+                scope.$on(events.WIZARD_OPEN, open);
             }
         };
     }
 
-    angular.module('horizon').directive('wizard', wizardDirectiveFactory);
+    angular.module('horizon').directive('wizard', [
+        'events',
+        wizardDirectiveFactory
+    ]);
 
 })();

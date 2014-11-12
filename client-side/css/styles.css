@@ -8,22 +8,22 @@
     box-sizing: border-box;
 }
 
+button {
+    padding: 5px 15px;
+}
+
 /*------------------------------------------------------------------------------
  wizard container
 */
 
 .wizard {
-    display: none;
+    display: block;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     text-align: center;
-}
-
-.wizard.open {
-    display: block;
 }
 
 .wizard .overlay {
@@ -116,4 +116,9 @@
 .launch-instance.step2 {
     height: 200px;
     background: blue;
+}
+
+.launch-instance.step3 {
+    height: 150px;
+    background: orange;
 }

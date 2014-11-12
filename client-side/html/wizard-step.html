@@ -2,11 +2,15 @@
     <div class="form" ng-transclude></div>
     <div class="toolbar">
         <div class="left-btn-grp">
-            <button class="back" ng-click="back()">back</button>
+            <button class="back"
+                ng-click="back()"
+                ng-hide="backBtnDisabled">{{ btnLabel.back }}</button>
         </div>
         <div class="right-btn-grp">
-            <button class="cancel" ng-click="cancel()">cancel</button
-           ><button class="next" ng-click="next()">next</button>
+            <button class="cancel" ng-click="cancel()">{{ 
+                btnLabel.cancel }}</button
+           ><button class="next" ng-click="next()">{{ 
+                isLastStep? btnLabel.finish : btnLabel.next }}</button>
         </div>
     </div>
 </div>
