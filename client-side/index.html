@@ -6,23 +6,64 @@
     <script src="js/app.js"></script>
     <script src="js/directives/wizard-step.js"></script>
     <script src="js/directives/wizard.js"></script>
-    <script src="js/controllers/launchInstance.js"></script>
+    <script src="js/controllers/A_Ctrl.js"></script>
+    <script src="js/controllers/B_Ctrl.js"></script>
 </head>
-<body ng-controller="LaunchInstanceCtrl">
-    <button ng-click="lauchInstance()">Launch Instance</button>
+<body>
+    <div ng-controller="A_Ctrl">
+        <button ng-click="showWizard()">Show Wizard for A_Ctrl</button>
 
-    <!-- Launch instance wizard -->
-    <wizard ng-show="show">
-        <wizardstep>
-            <div class="launch-instance step1">step1</div>
-        </wizardstep>
-        <wizardstep>
-            <div class="launch-instance step2">step2</div>
-        </wizardstep>
-        <wizardstep>
-            <div class="launch-instance step3">step3</div>
-        </wizardstep>
-    </wizard>
+        <wizard ng-show="show">
+            <wizardstep>
+                <div class="wizard-a">
+                    <h1>Step 1 in Wizard A</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vulputate tempus bibendum. Nam neque felis, pharetra vel sagittis et, tempor quis augue. Mauris pretium dui est, tempor suscipit nibh maximus vitae. Proin hendrerit rhoncus arcu. Morbi lectus enim, ultricies nec pretium vitae, malesuada ut ligula. Vivamus rhoncus purus ac ante rutrum, eu sollicitudin leo tincidunt. Duis urna orci, posuere at mollis quis, lacinia id quam. Nunc suscipit lobortis blandit. Cras diam tellus, tempus pretium lectus sed, commodo ultricies nunc. Integer tempor sit amet purus ut dapibus. Morbi quis maximus nunc. Aenean facilisis mauris eu ante bibendum gravida. Praesent eget ante tristique, fringilla elit ac, dictum leo. Vestibulum luctus hendrerit arcu nec efficitur. Morbi varius elit nec mi sagittis, at posuere nulla tempor. Nulla tincidunt interdum dolor in vestibulum. Nullam a laoreet metus, sollicitudin ultrices lacus. Pellentesque consectetur, odio eu rhoncus fringilla, odio mi lacinia quam, et tincidunt nunc tellus sed eros. In ex lacus, venenatis a ultricies vitae, congue a nunc. Phasellus semper pellentesque neque, at consequat erat accumsan ut.</p>
+                </div>
+            </wizardstep>
+            <wizardstep>
+                <div class="wizard-a">
+                    <h1>Step 2 in Wizard A</h1>
+                    <p>Morbi rutrum felis vitae purus malesuada posuere. Aliquam pulvinar elit at ex cursus posuere. In elementum auctor placerat. Sed gravida lobortis fringilla. Mauris facilisis sodales cursus. Pellentesque ut magna augue. Integer ante diam, auctor vitae vestibulum a, mollis sed orci. Vivamus id dolor nec ex pellentesque dignissim vitae et risus. Donec elementum sodales eros, ut malesuada tortor euismod et. Nulla efficitur sagittis ligula, vel dapibus lorem dapibus in. Mauris eu faucibus urna, ut auctor massa. Donec malesuada, mi in egestas elementum, lectus turpis molestie metus, sit amet venenatis elit sem sit amet sapien. Phasellus lobortis eu metus in fermentum. Donec sed tortor id dui tristique posuere eget et lacus. Pellentesque eget dolor sodales, vehicula lorem sed, iaculis nisl.</p>
+            </div>
+            </wizardstep>
+            <wizardstep>
+                <div  class="wizard-a">
+                    <h1>Step 3 in Wizard A</h1>
+                    <p>Sed massa justo, congue eu tincidunt a, tristique id urna. Vestibulum ac ipsum vulputate, scelerisque mauris vitae, facilisis justo. Duis rutrum, leo non venenatis vestibulum, libero lorem faucibus dolor, ac pellentesque metus augue id est. Cras sed lectus ut nulla bibendum mollis. Maecenas sit amet molestie quam. Cras finibus malesuada velit, quis porta est viverra eget. Vestibulum a massa lacinia elit rhoncus pulvinar eu eu erat. Pellentesque dui lectus, hendrerit dictum aliquam quis, rutrum vitae lorem. Vestibulum mollis justo purus, vel cursus erat ullamcorper consequat. Cras feugiat sollicitudin viverra. Fusce pulvinar sapien nisl, sit amet pharetra erat feugiat nec. Aenean elementum commodo tortor, vitae semper quam rhoncus at. Cras hendrerit lectus in ipsum commodo, nec dictum purus faucibus. Quisque rhoncus quis quam nec interdum. Sed consectetur, urna ut euismod tristique, libero lectus gravida leo, non cursus nibh felis eu arcu.</p>
+
+                    <p>Nullam a laoreet metus, sollicitudin ultrices lacus. Pellentesque consectetur, odio eu rhoncus fringilla, odio mi lacinia quam, et tincidunt nunc tellus sed eros. In ex lacus, venenatis a ultricies vitae, congue a nunc. Phasellus semper pellentesque neque, at consequat erat accumsan ut. Sed velit lacus, iaculis eu blandit placerat, faucibus ut urna. Sed vulputate auctor neque in facilisis. Cras a aliquet velit. Aliquam non ex eget purus venenatis blandit. Vivamus rutrum nunc vestibulum iaculis maximus. Nam nec ipsum sagittis, consequat sem sit amet, ultrices sem. Nullam semper purus pellentesque commodo cursus. Etiam commodo placerat pretium.</p>
+                </div>
+            </wizardstep>
+        </wizard>
+    </div><!--/ A_Ctrl -->
+
+
+    <div ng-controller="B_Ctrl">
+        <button ng-click="showWizard()">Show Wizard for B_Ctrl</button>
+
+        <wizard ng-show="show">
+            <wizardstep>
+                <div class="wizard-b">
+                    <h1>Step 1 in Wizard B</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vulputate tempus bibendum. Nam neque felis, pharetra vel sagittis et, tempor quis augue. Mauris pretium dui est, tempor suscipit nibh maximus vitae. Proin hendrerit rhoncus arcu. Morbi lectus enim, ultricies nec pretium vitae, malesuada ut ligula. Vivamus rhoncus purus ac ante rutrum, eu sollicitudin leo tincidunt. Duis urna orci, posuere at mollis quis, lacinia id quam. Nunc suscipit lobortis blandit. Cras diam tellus, tempus pretium lectus sed, commodo ultricies nunc. Integer tempor sit amet purus ut dapibus. Morbi quis maximus nunc. Aenean facilisis mauris eu ante bibendum gravida. Praesent eget ante tristique, fringilla elit ac, dictum leo. Vestibulum luctus hendrerit arcu nec efficitur. Morbi varius elit nec mi sagittis, at posuere nulla tempor. Nulla tincidunt interdum dolor in vestibulum. Nullam a laoreet metus, sollicitudin ultrices lacus. Pellentesque consectetur, odio eu rhoncus fringilla, odio mi lacinia quam, et tincidunt nunc tellus sed eros. In ex lacus, venenatis a ultricies vitae, congue a nunc. Phasellus semper pellentesque neque, at consequat erat accumsan ut.</p>
+                </div>
+            </wizardstep>
+            <wizardstep>
+                <div class="wizard-b">
+                    <h1>Step 2 in Wizard B</h1>
+                    <p>Morbi rutrum felis vitae purus malesuada posuere. Aliquam pulvinar elit at ex cursus posuere. In elementum auctor placerat. Sed gravida lobortis fringilla. Mauris facilisis sodales cursus. Pellentesque ut magna augue. Integer ante diam, auctor vitae vestibulum a, mollis sed orci. Vivamus id dolor nec ex pellentesque dignissim vitae et risus. Donec elementum sodales eros, ut malesuada tortor euismod et. Nulla efficitur sagittis ligula, vel dapibus lorem dapibus in. Mauris eu faucibus urna, ut auctor massa. Donec malesuada, mi in egestas elementum, lectus turpis molestie metus, sit amet venenatis elit sem sit amet sapien. Phasellus lobortis eu metus in fermentum. Donec sed tortor id dui tristique posuere eget et lacus. Pellentesque eget dolor sodales, vehicula lorem sed, iaculis nisl.</p>
+            </div>
+            </wizardstep>
+            <wizardstep>
+                <div class="wizard-b">
+                    <h1>Step 3 in Wizard B</h1>
+                    <p>Sed massa justo, congue eu tincidunt a, tristique id urna. Vestibulum ac ipsum vulputate, scelerisque mauris vitae, facilisis justo. Duis rutrum, leo non venenatis vestibulum, libero lorem faucibus dolor, ac pellentesque metus augue id est. Cras sed lectus ut nulla bibendum mollis. Maecenas sit amet molestie quam. Cras finibus malesuada velit, quis porta est viverra eget. Vestibulum a massa lacinia elit rhoncus pulvinar eu eu erat. Pellentesque dui lectus, hendrerit dictum aliquam quis, rutrum vitae lorem. Vestibulum mollis justo purus, vel cursus erat ullamcorper consequat. Cras feugiat sollicitudin viverra. Fusce pulvinar sapien nisl, sit amet pharetra erat feugiat nec. Aenean elementum commodo tortor, vitae semper quam rhoncus at. Cras hendrerit lectus in ipsum commodo, nec dictum purus faucibus. Quisque rhoncus quis quam nec interdum. Sed consectetur, urna ut euismod tristique, libero lectus gravida leo, non cursus nibh felis eu arcu.</p>
+
+                    <p>Nullam a laoreet metus, sollicitudin ultrices lacus. Pellentesque consectetur, odio eu rhoncus fringilla, odio mi lacinia quam, et tincidunt nunc tellus sed eros. In ex lacus, venenatis a ultricies vitae, congue a nunc. Phasellus semper pellentesque neque, at consequat erat accumsan ut. Sed velit lacus, iaculis eu blandit placerat, faucibus ut urna. Sed vulputate auctor neque in facilisis. Cras a aliquet velit. Aliquam non ex eget purus venenatis blandit. Vivamus rutrum nunc vestibulum iaculis maximus. Nam nec ipsum sagittis, consequat sem sit amet, ultrices sem. Nullam semper purus pellentesque commodo cursus. Etiam commodo placerat pretium.</p>
+                </div>
+            </wizardstep>
+        </wizard>
+    </div><!--/ B_Ctrl -->
 
     <script>angular.bootstrap(document, ['horizon']);</script>
 </body>
