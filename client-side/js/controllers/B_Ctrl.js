@@ -2,6 +2,7 @@
     'use strict';
 
     function B_Ctrl($scope, events) {
+
         function showWizard() {
             $scope.$broadcast(events.WIZARD_OPEN);
         }
