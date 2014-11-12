@@ -53,7 +53,6 @@
 
                 function close() {
                     scope.show = false;
-                    scope.$emit(events.WIZARD_CLOSE);
                 }
 
                 function back() {
