@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+    <link href="/css/styles.css" rel="stylesheet"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/directives/wizard-step.js"></script>
+    <script src="js/directives/wizard.js"></script>
+</head>
+<body>
+    <!-- Launch instance wizard -->
+    <wizard>
+        <wizardstep class="current">
+            <div class="launch-instance step1">step1</div>
+        </wizardstep>
+        <wizardstep>
+            <div class="launch-instance step2">step2</div>
+        </wizardstep>
+    </wizard>
+
+    <script>angular.bootstrap(document, ['horizon']);</script>
+</body>
+</html>

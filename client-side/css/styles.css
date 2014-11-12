@@ -1,0 +1,119 @@
+/*------------------------------------------------------------------------------
+ reset
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*------------------------------------------------------------------------------
+ wizard container
+*/
+
+.wizard {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-align: center;
+}
+
+.wizard.open {
+    display: block;
+}
+
+.wizard .overlay {
+    display: none;
+}
+
+.wizard.modal .overlay {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,.35);
+}
+
+.wizard .content {
+    position: relative;
+    display: inline-block;
+    z-index: 1000;
+    margin-top: 200px;
+    border: 1px solid #38b;
+    background: white;
+    text-align: left;
+}
+
+.wizard .step {
+    display: none;
+    position: relative;
+    min-height: 150px;
+    min-width: 200px;
+}
+
+.wizard .step.current {
+    display: block;
+}
+
+.wizard .form {
+    padding: 10px;
+    padding-bottom: 50px;
+}
+
+.wizard .toolbar {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 50px;
+}
+
+.wizard .toolbar .left-btn-grp {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+}
+
+.wizard .toolbar .right-btn-grp {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+
+.wizard button {
+    padding: 5px 15px;
+}
+
+.wizard .toolbar .left-btn-grp button {
+    margin-right: 5px;
+}
+
+.wizard .toolbar .right-btn-grp button {
+    margin-left: 5px;
+}
+
+/*------------------------------------------------------------------------------
+ launch instance wizard contents
+*/
+
+.launch-instance {
+    width: 500px;
+    color: white;
+    font-size: 24px;
+}
+
+.launch-instance.step1 {
+    height: 100px;
+    background: red;
+}
+
+.launch-instance.step2 {
+    height: 200px;
+    background: blue;
+}
