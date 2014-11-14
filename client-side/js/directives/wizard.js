@@ -19,8 +19,6 @@
 
             link: function(scope, element, attrs, controllers) {
 
-                console.log(attrs);
-
                 var opened = false,
                     contentContainer = angular.element(element[0].children[1]),
                     currentIndex = 0,
