@@ -6,6 +6,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    outline: none;
+    font-family: "Segoe UI Light","Segoe WPC","Segoe UI", Helvetica, Arial, "Arial Unicode MS", Sans-Serif;
+    font-weight: lighter;
+    list-style: none;
+    text-decoration: none;
 }
 
 button {
@@ -37,17 +42,57 @@ button {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0,0,0,.35);
+    background: rgba(0,0,0,.8);
 }
 
-.wizard .content {
+.wizard .light-box {
     position: relative;
     display: inline-block;
     z-index: 1000;
-    margin-top: 200px;
-    border: 1px solid #38b;
+    margin-top: 80px;
+    border: 1px solid #ddd;
     background: white;
     text-align: left;
+}
+
+.wizard .title {
+    height: 65px;
+    line-height: 65px;
+    vertical-align: top;
+    padding: 0 30px;
+    color: #444;
+    font-size: 20px;
+    border-bottom: 1px solid #ddd;
+    vertical-align: top;
+}
+
+.wizard .content {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.wizard .content h1 {
+    font-size: 20px;
+}
+
+.wizard .content p {
+    margin-top: 20px;
+}
+
+.wizard .nav {
+    position: relative;
+    display: inline-block;
+    width: 300px;
+    padding: 8px 30px;
+}
+
+.wizard .nav li {
+    height: 50px;
+    line-height: 50px;
+    vertical-align: middle;
+    border-bottom: 1px solid #ddd;
+    padding-left: 10px;
+    color: #999;
 }
 
 .wizard .step {
@@ -63,31 +108,63 @@ button {
 
 .wizard .form {
     padding: 10px;
-    padding-bottom: 50px;
+    padding-bottom: 65px;
 }
 
 .wizard .toolbar {
     position: absolute;
-    left: 0;
+    left: -300px;
     right: 0;
     bottom: 0;
-    height: 50px;
+    height: 65px;
+    line-height: 65px;
+    vertical-align: middle;
+    background: #efefef;
+    border-top: 1px solid #ddd;
 }
 
 .wizard .toolbar .left-btn-grp {
     position: absolute;
-    left: 10px;
-    bottom: 10px;
+    left: 30px;
 }
 
 .wizard .toolbar .right-btn-grp {
     position: absolute;
-    right: 10px;
-    bottom: 10px;
+    right: 30px;
+}
+
+.wizard .btn-wrap {
+    display: inline-block;
+}
+
+.wizard .btn-wrap.finish {
+    padding-left: 15px;
+    margin-left: 20px;
+    border-left: 2px solid #ddd;
 }
 
 .wizard button {
-    padding: 5px 15px;
+    height: 30px;
+    line-height: 30px;
+    vertical-align: middle;
+    padding: 0 30px;
+    font-size: 14px;
+    color: #aaa;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    background: #fff;
+}
+
+.wizard button.next {
+    color: rgba(255,255,255,.75);
+    border-color: #0083d1;
+    background: #0083d1;
+}
+
+.wizard button.finish {
+    color: rgba(255,255,255,.75);
+    border-color: #393;
+    background: #393;
 }
 
 .wizard .toolbar .left-btn-grp button {
@@ -98,20 +175,21 @@ button {
     margin-left: 5px;
 }
 
+
 /*------------------------------------------------------------------------------
  launch instance wizard contents
 */
 
 .wizard-a {
-    width: 750px;
-    color: white;
-    font-size: 24px;
-    background: green;
+    width: 600px;
+    color: #999;
+    font-size: 16px;
+    padding-bottom: 20px
 }
 
 .wizard-b {
-    width: 1200px;
-    color: white;
-    font-size: 24px;
-    background: orange;
+    width: 900px;
+    color: #999;
+    font-size: 16px;
+    padding-bottom: 20px
 }

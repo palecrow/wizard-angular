@@ -20,7 +20,7 @@
             link: function(scope, element, attrs, controllers) {
 
                 var opened = false,
-                    contentContainer = angular.element(element[0].children[1]),
+                    contentContainer = angular.element(element[0].children[1].children[2]),
                     currentIndex = 0,
                     steps = contentContainer[0].children,
                     stepsCount = contentContainer[0].childElementCount;
