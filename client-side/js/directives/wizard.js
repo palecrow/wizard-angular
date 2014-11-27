@@ -89,7 +89,7 @@
         };
     }
 
-    angular.module('horizon').directive('wizard', [
+    angular.module('hz').directive('wizard', [
         'events',
         wizardDirectiveFactory
     ]);

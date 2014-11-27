@@ -1,29 +1,19 @@
-describe('wizard-step directive test', function () {
+describe('directive wizard-step tests', function () {
+  var $compile,
+      $scope;
 
-    var playgroundElement = document.getElementById('playground'),
-        html = testHelpers.loadSync('/spec/html/wizards.html'),
-        wizardsElement;
+  beforeEach(module('hz'));
 
-    beforeEach(function () {
-        playgroundElement.innerHTML = html;
-        wizardsElement = document.getElementById('wizards'),
-        angular.bootstrap(wizardsElement, ['horizon']);
-    });
+  beforeEach(inject(function ($injector) {
+    $scope = $injector.get('$rootScope').$new();
+    $compile = $injector.get('$compile');
+  }));
 
-    afterEach(function () {
-        playgroundElement.innerHTML = '';
-    });
+  it('should have CSS class "step"', function () {
+    var element = $compile('<wizardstep></wizardstep>')($scope);
+    $scope.$digest();
+    // console.log(element);
+    expect(element.hasClass('step')).toBe(true);
+  });
 
-    it('click launch wizard button shoule popup wizard', function () {
-        // Jasmine 2.0 new async API is not available 
-
-        // TODO: enable this test.
-        // setTimeout(function () {
-        //     done();
-        // }, 0);
-
-        // expect($('#wizard-1').hasClass('ng-hide')).toBe(true);
-        // $('#button-1').click();
-        // expect($('#wizard-1').hasClass('ng-hide')).toBe(false);
-    });
 });

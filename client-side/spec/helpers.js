@@ -1,6 +1,6 @@
 var testHelpers = testHelpers || {};
 
-;(function (helps) {
+;(function (exports) {
 
     'use strict';
 
@@ -14,7 +14,14 @@ var testHelpers = testHelpers || {};
         return xhr.status === 200 ? xhr.responseText : null;
     }
 
+    function cacheTemplate(templateUrl, moduleName) {
+        angular.module(moduleName).run(function($templateCache) {
+            $templateCache.put(templateUrl, testHelpers.loadSync(templateUrl));
+        });
+    }
+
     // export
-    helps.loadSync = loadSync;
+    exports.loadSync = loadSync;
+    exports.cacheTemplate = cacheTemplate;
 
 })(testHelpers);

@@ -35,6 +35,6 @@
         };
     }
 
-    angular.module('horizon').directive('wizardstep', wizardStepDirectiveFactory);
+    angular.module('hz').directive('wizardstep', wizardStepDirectiveFactory);
 
 })();

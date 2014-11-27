@@ -10,7 +10,7 @@
         $scope.showWizard = showWizard;
     }
 
-    angular.module('horizon').controller('A_Ctrl', [
+    angular.module('hz').controller('A_Ctrl', [
         '$scope',
         'events',
         A_Ctrl

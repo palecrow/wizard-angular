@@ -1,7 +1,7 @@
 ;(function () {
     'use strict';
 
-    var app = angular.module('horizon', []);
+    var app = angular.module('hz', []);
 
     app.constant('events', {
         WIZARD_OPEN: 'WIZARD_OPEN'
