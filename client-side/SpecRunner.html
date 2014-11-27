@@ -30,14 +30,19 @@
     }
     </script>
     <script>
-    (function () { 'use strict';
+    (function () { 
+        'use strict';
+
+        var app = angular.module('hz');
+
         // If you want to test a directive with external template, you need to add
         // the templateUrl value to this list:
-        [ '/html/wizard.html'
-        , '/html/wizard-step.html'
-
+        [ 
+            '/html/wizard.html'
+          , '/html/wizard-step.html'
+        
         ].forEach(function (templateUrl) {
-            testHelpers.cacheTemplate(templateUrl, 'hz');
+            testHelpers.cacheTemplate(templateUrl, app);
         });
     })();
     </script>

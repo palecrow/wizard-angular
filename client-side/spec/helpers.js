@@ -14,9 +14,9 @@ var testHelpers = testHelpers || {};
         return xhr.status === 200 ? xhr.responseText : null;
     }
 
-    function cacheTemplate(templateUrl, moduleName) {
-        angular.module(moduleName).run(function($templateCache) {
-            $templateCache.put(templateUrl, testHelpers.loadSync(templateUrl));
+    function cacheTemplate(templateUrl, moduleObject) {
+        moduleObject.run(function ($templateCache) {
+            $templateCache.put(templateUrl, loadSync(templateUrl));
         });
     }
 
