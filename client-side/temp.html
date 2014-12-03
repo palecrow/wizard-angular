@@ -1,0 +1,263 @@
+<!doctype html>
+<html>
+<head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      outline: none;
+      list-style: none;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+       box-sizing: border-box;
+    }
+
+    body {
+      background: #555;
+    }
+
+    [ng-form] {
+      position: relative;
+      display: inline-block;
+      line-height: 0px;
+      margin: 20px;
+    }
+
+    .wizard {
+      border: 1px solid #333;
+      background: #fff;
+      padding-bottom: 40px;
+    }
+
+    [ng-form] > * {
+      line-height: 1.4;
+    }
+
+    [ng-form] [ng-form] {
+      position: relative;
+      width: 240px;
+      height: 160px;
+      margin: 0 0 0 100px;
+      padding: 0;
+    }
+
+    [ng-form] [ng-form] * {
+      position: absolute;
+      text-align: center;
+    }
+
+    [ng-form] [ng-form] input {
+      top: 20px;
+      left: 20px;
+    }
+
+    [ng-form] [ng-form] label {
+      top: 15px;
+      left: 40px;
+    }
+
+    [ng-form] [ng-form] h1 {
+      top: 60px;
+      right: 10px;
+    }
+
+    .title {
+      height: 40px;
+      line-height: 40px;
+      padding-left: 10px;
+      background: #eee;
+    }
+
+    .nav {
+      position: absolute;
+      top: 40px;
+      left: 0px;
+      bottom: 40px;
+      width: 100px;
+      padding: 10px;
+      border-right: 1px solid #333;
+    }
+
+    .nav > * {
+      display: block;
+      line-height: 20px;
+      height: 20px;
+      width: 100%;
+      text-align: left;
+      padding-left: 4px;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid #666;
+      margin-top: -1px;
+    }
+
+    .nav > *.active {
+      background: DodgerBlue;
+      color: #fff;
+      border-color: DodgerBlue;
+    }
+
+    .toolbar {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 40px;
+      background: #eee;
+    }
+
+    .toolbar button {
+      font-size: 11px;
+      height: 22px;
+      line-height: 22px;
+      padding: 0 10px;
+      border: 1px solid #666;
+    }
+
+    .toolbar button.finish {
+      color: #fff;
+      border-color: green;
+      background: green;
+    }
+
+    .toolbar button[disabled] {
+      color: #ccc;
+      border-color: #ccc;
+      background: #eee;
+    }
+
+    .toolbar .left-btn-grp {
+      position: absolute;
+      left: 10px;
+      top: 10px;
+    }
+
+    .toolbar .right-btn-grp {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+    
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.js"></script>
+</head>
+<body>
+
+<div ng-controller="Ctrl" ng-hide="allDone || canceled">
+  <div ng-form class="wizard">
+    <div class="title">Launch Instance</div>
+
+    <div class="nav">
+      <button 
+        ng-repeat="step in steps"
+        ng-disabled="!steps[$index].valid" ng-click="switchTo($index)" 
+        ng-class="{'active':currentIndex===$index}">{{ step.title 
+      }}</button>
+    </div>
+
+    <div 
+      ng-form 
+      ng-show="shoudShow($index)" 
+      ng-repeat="step in steps">
+      <input type="checkbox" ng-model="steps[$index].valid"/>
+      <label>check to validate this step</lavel>
+      <h1>{{ step.title }}</h1>
+    </div>
+ 
+    <div class="toolbar">
+      <div class="left-btn-grp">
+        <button
+          ng-click="canceled=true">cancel</button>
+      </div>
+      <div class="right-btn-grp">
+        <button
+          ng-hide="isFirstStep()"
+          ng-click="back()">back</button>
+        <button
+          ng-hide="isLastStep()"
+          ng-disabled="!steps[currentIndex].valid"
+          ng-click="next()">next</button>
+        <button class="finish"
+          ng-disabled="!allValid()"
+          ng-click="allDone=true">finish</button>
+        </div>
+    </div>
+  </div>
+</div>
+
+<script>
+
+(function () {
+  'use strict';
+
+  var app = angular.module('hz', []);
+
+  var steps = [
+    { valid: false, done: false, title: 'Step 1' },
+    { valid: false, done: false, title: 'Step 2' },
+    { valid: false, done: false, title: 'Step 3' },
+    { valid: false, done: false, title: 'Step 4' }
+  ];
+
+  app.controller('Ctrl', ['$scope', function($scope) {
+    $scope.steps = steps;
+    $scope.currentIndex = 0;
+    $scope.canceled = false;
+    $scope.allDone = false;
+
+    $scope.switchTo = function (index) {
+      var steps = $scope.steps,
+          currentIndex = $scope.currentIndex;
+
+      if (index === currentIndex) {
+        return;
+      }
+      if (index < currentIndex) {
+        for (var i = index; i < currentIndex; i++) {
+          steps[i].done = false;  
+        }
+      } else {
+        for (var i = currentIndex; i < index; i++) {
+          steps[i].done = true;  
+        }
+      }
+      $scope.currentIndex = index;
+      steps[index].done = false; 
+    };
+
+    $scope.isFirstStep = function () {
+      return $scope.currentIndex === 0;
+    };
+
+    $scope.isLastStep = function () {
+      return $scope.currentIndex === $scope.steps.length - 1;
+    };
+
+    $scope.next = function () {
+      $scope.switchTo($scope.currentIndex + 1);
+    };
+
+    $scope.back = function () {
+      $scope.switchTo($scope.currentIndex - 1);
+    };
+
+    $scope.allValid = function () {
+      return $scope.steps.every(function (step) {
+        return step.valid;
+      });
+    }
+
+    $scope.shoudShow = function (index) {
+      var steps = $scope.steps;
+      return (!steps[index - 1] || steps[index - 1].done) 
+        && !steps[index].done;
+    }
+
+  }]);
+
+  angular.bootstrap(document, ['hz']);
+
+})();
+</script>
+</body>
+</html>

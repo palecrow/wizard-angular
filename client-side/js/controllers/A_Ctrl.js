@@ -1,19 +1,19 @@
-;(function () {
-    'use strict';
+(function () {
+  'use strict';
 
-    function A_Ctrl($scope, events) {
+  function A_Ctrl($scope, events) {
 
-        function showWizard() {
-            $scope.$broadcast(events.WIZARD_OPEN);
-        }
-
-        $scope.showWizard = showWizard;
+    function launchInstance() {
+      $scope.$broadcast(events.OPEN_LAUNCH_INSTANCE_WIZARD_EVENT);
     }
 
-    angular.module('hz').controller('A_Ctrl', [
-        '$scope',
-        'events',
-        A_Ctrl
-    ]);
+    $scope.launchInstance = launchInstance;
+  }
+
+  angular.module('hz').controller('A_Ctrl', [
+    '$scope',
+    'events',
+    A_Ctrl
+  ]);
 
 })();

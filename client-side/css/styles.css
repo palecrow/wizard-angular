@@ -1,196 +1,202 @@
-/*------------------------------------------------------------------------------
- reset
-*/
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    outline: none;
-    font-family: "Segoe UI Light","Segoe WPC","Segoe UI", Helvetica, Arial, "Arial Unicode MS", Sans-Serif;
-    font-weight: lighter;
-    list-style: none;
-    text-decoration: none;
-}
-
-button {
-    padding: 5px 15px;
-}
-
-/*------------------------------------------------------------------------------
- wizard container
-*/
-
 .wizard {
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    text-align: center;
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+}
+
+.wizard * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  font-family: "Segoe UI Light","Segoe WPC","Segoe UI", Helvetica, Arial, "Arial Unicode MS", Sans-Serif;
+  font-weight: lighter;
+  list-style: none;
+  text-decoration: none;
 }
 
 .wizard .overlay {
-    display: none;
+  display: none;
 }
 
 .wizard.modal .overlay {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0,0,0,.8);
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,.8);
 }
 
 .wizard .light-box {
-    position: relative;
-    display: inline-block;
-    z-index: 1000;
-    margin-top: 80px;
-    border: 1px solid #ddd;
-    background: white;
-    text-align: left;
+  position: relative;
+  display: inline-block;
+  z-index: 1000;
+  margin-top: 80px;
+  border: 1px solid #ddd;
+  background: white;
+  text-align: left;
 }
 
 .wizard .title {
-    height: 65px;
-    line-height: 65px;
-    vertical-align: top;
-    padding: 0 30px;
-    color: #444;
-    font-size: 20px;
-    border-bottom: 1px solid #ddd;
-    vertical-align: top;
-}
-
-.wizard .content {
-    display: inline-block;
-    vertical-align: top;
-}
-
-.wizard .content h1 {
-    font-size: 20px;
-}
-
-.wizard .content p {
-    margin-top: 20px;
+  height: 65px;
+  line-height: 65px;
+  vertical-align: top;
+  padding: 0 30px;
+  color: #444;
+  font-size: 20px;
+  border-bottom: 1px solid #ddd;
+  vertical-align: top;
 }
 
 .wizard .nav {
-    position: relative;
-    display: inline-block;
-    width: 300px;
-    padding: 8px 30px;
+  display: inline-block;
+  top: 40px;
+  left: 0px;
+  bottom: 40px;
+  width: 250px;
+  padding: 10px;
 }
 
-.wizard .nav li {
-    height: 50px;
-    line-height: 50px;
-    vertical-align: middle;
-    border-bottom: 1px solid #ddd;
-    padding-left: 10px;
-    color: #999;
+.wizard .nav button {
+  display: block;
+  line-height: 40px;
+  height: 40px;
+  width: 100%;
+  text-align: left;
+  padding-left: 4px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  margin-top: -1px;
+  color: green;
+  background: rgba(0,255,0,.15);
+}
+
+.wizard .nav button[disabled] {
+  color: #ccc;
+  background: transparent;
+}
+
+.wizard .nav button.current {
+  background: #0083d1;
+  color: #fff;
+  border-color: #0083d1;
 }
 
 .wizard .step {
-    display: none;
-    position: relative;
-    min-height: 150px;
-    min-width: 200px;
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  width: 480px;
+  height: 320px;
 }
 
-.wizard .step.current {
-    display: block;
+.wizard .step * {
+  position: absolute;
+  text-align: center;
 }
 
-.wizard .form {
-    padding: 10px;
-    padding-bottom: 65px;
+.wizard .step input {
+  top: 40px;
+  left: 10px;
+}
+
+.wizard .step label {
+  top: 38px;
+  left: 25px;
+  font-size: 11px;
+}
+
+.wizard .step h1 {
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: normal;
+  line-height: 1.5;
+  border-bottom: 1px solid #999; 
 }
 
 .wizard .toolbar {
-    position: absolute;
-    left: -300px;
-    right: 0;
-    bottom: 0;
-    height: 65px;
-    line-height: 65px;
-    vertical-align: middle;
-    background: #efefef;
-    border-top: 1px solid #ddd;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 65px;
+  line-height: 65px;
+  vertical-align: middle;
+  background: #efefef;
+  border-top: 1px solid #ddd;
 }
 
 .wizard .toolbar .left-btn-grp {
-    position: absolute;
-    left: 30px;
+  position: absolute;
+  left: 30px;
 }
 
 .wizard .toolbar .right-btn-grp {
-    position: absolute;
-    right: 30px;
+  position: absolute;
+  right: 30px;
 }
 
 .wizard .btn-wrap {
-    display: inline-block;
+  display: inline-block;
 }
 
 .wizard .btn-wrap.finish {
-    padding-left: 15px;
-    margin-left: 20px;
-    border-left: 2px solid #ddd;
+  padding-left: 15px;
+  margin-left: 20px;
+  border-left: 2px solid #ddd;
 }
 
 .wizard button {
-    height: 30px;
-    line-height: 30px;
-    vertical-align: middle;
-    padding: 0 30px;
-    font-size: 14px;
-    color: #aaa;
-    border: 1px solid #ddd;
-    border-radius: 2px;
-    background: #fff;
+  height: 30px;
+  line-height: 30px;
+  vertical-align: middle;
+  padding: 0 30px;
+  font-size: 14px;
+  color: #666;
+  border: 1px solid #aaa;
+  border-radius: 2px;
+  background: #fff;
+}
+
+.wizard button[disabled],
+.wizard button[disabled].next {
+  color: #ccc;
+  border-color: #ddd;
+  background: #fff;
 }
 
 .wizard button.next {
-    color: rgba(255,255,255,.75);
-    border-color: #0083d1;
-    background: #0083d1;
+  color: rgba(255,255,255,.75);
+  border-color: #0083d1;
+  background: #0083d1;
 }
 
 .wizard button.finish {
-    color: rgba(255,255,255,.75);
-    border-color: #393;
-    background: #393;
+  color: rgba(255,255,255,.75);
+  border-color: #393;
+  background: #393;
+}
+
+.wizard button.finish[disabled] {
+  color: #fff;
+  border-color: #ddd;
+  background: #bbb;
 }
 
 .wizard .toolbar .left-btn-grp button {
-    margin-right: 5px;
+  margin-right: 5px;
 }
 
 .wizard .toolbar .right-btn-grp button {
-    margin-left: 5px;
-}
-
-
-/*------------------------------------------------------------------------------
- launch instance wizard contents
-*/
-
-.wizard-a {
-    width: 600px;
-    height: 600px;
-    color: #999;
-    font-size: 16px;
-    padding-bottom: 20px
-}
-
-.wizard-b {
-    width: 900px;
-    color: #999;
-    font-size: 16px;
-    padding-bottom: 20px
+  margin-left: 5px;
 }

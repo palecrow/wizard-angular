@@ -1,14 +1,59 @@
-<div class="modal wizard">
-    <div class="overlay"></div>
-    <div class="light-box">
-        <div class="title">Launch Instance</div>
-        <ul class="nav">
-            <li>01 Select Source</li>
-            <li>02 Flavor</li>
-            <li>03 Network</li>
-            <li>04 Access and Security</li>
-            <li>05 Post Creation</li>
-        </ul
-        ><div class="content" ng-transclude></div>
+<div class="modal wizard"
+  ng-hide="!forcedOpen || allDone || canceled">
+
+  <div class="overlay"></div>
+  <div class="light-box">
+    <div class="title" ng-bind="title"></div>
+    
+    <div class="nav">
+      <button 
+        ng-bind="step.title"
+        ng-class="{'current':isCurrent($index)}"
+        ng-click="switchTo($index)"
+        ng-disabled="!steps[$index].valid"
+        ng-repeat="step in steps">
+      </button>
+    </div
+
+    ><div class="step"
+      ng-form
+      ng-include src="step.url"
+      ng-repeat="step in steps"
+      ng-show="shouldShow($index)">
     </div>
+
+    <div class="toolbar">
+
+      <div class="left-btn-grp">
+        <button
+          ng-bind="btnDisplayText.cancel"
+          ng-click="cancel()">
+        </button>
+      </div
+
+      ><div class="right-btn-grp">
+        <button
+          ng-bind="btnDisplayText.back"
+          ng-click="back()"
+          ng-hide="isFirstStep()">
+        </button
+
+        ><button class="next"
+          ng-bind="btnDisplayText.next"
+          ng-click="next()"
+          ng-disabled="!steps[currentIndex].valid"
+          ng-hide="isLastStep()">
+        </button
+
+        ><span class="separator"></span
+
+        ><button class="finish"
+          ng-bind="btnDisplayText.finish"
+          ng-click="finish(); submit();"
+          ng-disabled="!allValid()">
+        </button>
+      </div>
+    </div>
+
+  </div>
 </div>
