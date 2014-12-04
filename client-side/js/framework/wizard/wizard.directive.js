@@ -52,7 +52,7 @@
         }
       }
       $scope.currentIndex = index;
-      steps[index].done = false; 
+      steps[index].done = false;
     }
 
     function isFirstStep() {
@@ -82,8 +82,8 @@
     }
 
     function shouldShow(index) {
-      return (!steps[index - 1] || steps[index - 1].done) 
-        && !steps[index].done;
+      return (!steps[index - 1] || steps[index - 1].done) && 
+        !steps[index].done;
     }
 
     $scope.switchTo = switchTo;
@@ -110,7 +110,7 @@
     };
   }
 
-  angular.module('hz').directive('wizard', [
+  angular.module('hz.framework.wizard').directive('wizard', [
     'workflows',
     wizardDirectiveFactory
   ]);

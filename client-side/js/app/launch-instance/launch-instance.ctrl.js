@@ -2,6 +2,7 @@
   'use strict';
 
   function LaunchInstanceCtrl($scope) {
+
     function submit() {
       setTimeout(function () {
         alert('Submitted.');
@@ -11,7 +12,7 @@
     $scope.submit = submit;
   }
 
-  angular.module('hz').controller('LaunchInstanceCtrl', [
+  angular.module('hz.app.launch-instance').controller('LaunchInstanceCtrl', [
     '$scope',
     LaunchInstanceCtrl
   ]);

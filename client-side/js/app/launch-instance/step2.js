@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  function Step1_Ctrl($scope) {
+  function Step2_Ctrl($scope) {
     $scope.checked = false;
     $scope.$watch('checked', validate);
 
@@ -10,9 +10,9 @@
     }
   }
 
-  angular.module('hz').controller('Step1_Ctrl', [
+  angular.module('hz.app.launch-instance').controller('Step2_Ctrl', [
     '$scope',
-    Step1_Ctrl
+    Step2_Ctrl
   ]);
 
 })();
