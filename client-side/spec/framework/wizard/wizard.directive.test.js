@@ -1,4 +1,4 @@
-describe('directive wizard tests', function () {
+describe('hz.framework.wizard wizard.directive test', function () {
   var $compile,
       $scope;
 
@@ -9,8 +9,8 @@ describe('directive wizard tests', function () {
     $compile = $injector.get('$compile');
   }));
 
-  it('should have CSS class "wizard" and "modal"', function () {
-    var element = $compile('<wizard></wizard>')($scope);
+  it('should have CSS class name "wizard" and "modal".', function () {
+    var element = $compile('<wizard workflow="launch-instance"></wizard>')($scope);
     $scope.$digest();
     expect(element.hasClass('wizard')).toBe(true);
     expect(element.hasClass('modal')).toBe(true);
