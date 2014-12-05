@@ -56,11 +56,11 @@
 
       if (index < currentIndex) {
         for (i = index; i < currentIndex; i++) {
-          steps[i].done = false;  
+          steps[i].done = false;
         }
       } else {
         for (i = currentIndex; i < index; i++) {
-          steps[i].done = true;  
+          steps[i].done = true;
         }
       }
       $scope.currentIndex = index;
@@ -94,16 +94,8 @@
     }
 
     function shouldShow(index) {
-      return (!steps[index - 1] || steps[index - 1].done) && 
+      return (!steps[index - 1] || steps[index - 1].done) &&
         !steps[index].done;
-    }
-
-    function showHelp() {
-
-    }
-
-    function hideHelp() {
-      
     }
 
     $scope.switchTo = switchTo;

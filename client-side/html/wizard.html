@@ -4,9 +4,9 @@
   <div class="overlay"></div>
   <div class="light-box">
     <div class="title" ng-bind="title"></div>
-    
+
     <div class="nav">
-      <button 
+      <button
         ng-bind="step.title"
         ng-class="{'current':isCurrent($index)}"
         ng-click="switchTo($index)"
@@ -29,9 +29,9 @@
           ng-bind="btnDisplayText.cancel"
           ng-click="cancel()">
         </button>
-      </div
+      </div>
 
-      ><div class="primary-btn-grp">
+      <div class="primary-btn-grp">
         <button
           ng-bind="btnDisplayText.back"
           ng-click="back()"
@@ -56,20 +56,19 @@
     </div>
 
     <div class="help-panel"
-        ng-class="{ 'open': openHelp } "
-      >
+      ng-class="{'open': openHelp}">
       <button class="open"
-        ng-click="openHelp=true"
-        >?</button>
+        ng-click="openHelp=true">
+      </button>
       <button class="close"
-        ng-click="openHelp=false"
-        >X</button>
+        ng-click="openHelp=false">
+      </button>
       <div class="content">
         <div class="page"
           ng-include src="step.helpUrl"
           ng-repeat="step in steps"
           ng-show="isCurrent($index)">
-      </div>
+        </div>
       </div>
     </div>
 
