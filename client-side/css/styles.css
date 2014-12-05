@@ -41,6 +41,7 @@
   border: 1px solid #ddd;
   background: white;
   text-align: left;
+  overflow: hidden;
 }
 
 .wizard .title {
@@ -193,10 +194,66 @@
   background: #bbb;
 }
 
-.wizard .toolbar .left-btn-grp button {
+.wizard .toolbar .secondary-btn-grp button {
   margin-right: 5px;
 }
 
-.wizard .toolbar .right-btn-grp button {
+.wizard .toolbar .primary-btn-grp button {
   margin-left: 5px;
 }
+
+.wizard .help-panel {
+  position: absolute;
+  width: 300px;
+  top: 0;
+  right: -300px;
+  bottom: 65px;
+  background: #eee;
+  -webkit-transition: right linear 0.1s;
+  transition: right linear 0.1s;
+}
+
+  .wizard .help-panel .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 20px;
+    overflow-y: visible;
+  }
+
+    .wizard .help-panel .content .page {
+    }
+
+  .wizard .help-panel.open {
+    right: 0;
+  }
+
+    .wizard .help-panel.open > button.open {
+      display: none;
+    }
+
+    .wizard .help-panel.open > button.close {
+      display: block;
+    }
+
+  .wizard .help-panel > button {
+    position: absolute;
+    top: 15px;
+    left: -35px;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    padding: 0;
+    border: none;
+    background: #eee;
+  }
+
+    .wizard .help-panel > button:hover {
+      background: #ddd;
+    }
+
+    .wizard .help-panel > button.close {
+      display: none;
+    }

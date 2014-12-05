@@ -16,10 +16,14 @@
         title: 'Launch Instance',
 
         steps: [
-          { title: 'Step 1', url: "/html/launch-instance/step1.html" },
-          { title: 'Step 2', url: "/html/launch-instance/step2.html" },
-          { title: 'Step 3', url: "/html/launch-instance/step3.html" },
-          { title: 'Step 4', url: "/html/launch-instance/step4.html" }
+          { title: 'Step 1', url: "/html/launch-instance/step1.html",
+            helpUrl: "/html/launch-instance/help/help-for-step1.html" },
+          { title: 'Step 2', url: "/html/launch-instance/step2.html",
+            helpUrl: "/html/launch-instance/help/help-for-step2.html" },
+          { title: 'Step 3', url: "/html/launch-instance/step3.html",
+            helpUrl: "/html/launch-instance/help/help-for-step3.html" },
+          { title: 'Step 4', url: "/html/launch-instance/step4.html",
+            helpUrl: "/html/launch-instance/help/help-for-step4.html" }
         ],
 
         btnDisplayText: {

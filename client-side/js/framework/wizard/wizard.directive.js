@@ -2,7 +2,18 @@
   'use strict';
 
   function link($scope, element, attrs, workflows) {
+    if (!attrs.workflow) {
+      console.error('"workflow" attribute must be defined for <wizard> tag.');
+      return;
+    }
+
     var workflow = workflows[attrs.workflow];
+
+    if (!workflow) {
+      console.error('Workflow with name "' + attrs.workflow + '" must be defined.');
+      return;
+    }
+
     var steps = $scope.steps = workflow.steps;
     $scope.title = workflow.title;
     $scope.btnDisplayText = workflow.btnDisplayText;
@@ -18,6 +29,7 @@
       $scope.canceled = false;
       $scope.allDone = false;
       $scope.forcedOpen = false;
+      $scope.openHelp = false;
     }
 
     function open() {
@@ -84,6 +96,14 @@
     function shouldShow(index) {
       return (!steps[index - 1] || steps[index - 1].done) && 
         !steps[index].done;
+    }
+
+    function showHelp() {
+
+    }
+
+    function hideHelp() {
+      
     }
 
     $scope.switchTo = switchTo;
