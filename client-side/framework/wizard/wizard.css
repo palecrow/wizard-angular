@@ -104,12 +104,12 @@
 }
 
 .wizard .step input {
-  top: 40px;
+  top: 70px;
   left: 10px;
 }
 
 .wizard .step label {
-  top: 38px;
+  top: 68px;
   left: 25px;
   font-size: 11px;
 }
@@ -119,10 +119,11 @@
   left: 10px;
   right: 10px;
   text-align: left;
-  font-size: 11px;
+  font-size: 18px;
   font-weight: normal;
+  margin-top: 20px;
   line-height: 1.5;
-  border-bottom: 1px solid #999;
+  border-bottom: 1px solid #ddd;
 }
 
 .wizard .toolbar {
@@ -205,7 +206,7 @@
 .wizard .help-panel {
   position: absolute;
   width: 300px;
-  top: 0;
+  top: 65px;
   right: -300px;
   bottom: 65px;
   background: #eee;

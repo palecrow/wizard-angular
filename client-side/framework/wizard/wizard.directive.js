@@ -1,6 +1,8 @@
 (function () {
   'use strict';
 
+  var module = angular.module('hz.framework.wizard', []);
+
   function link($scope, element, attrs, workflows) {
     if (!attrs.workflow) {
       console.error('"workflow" attribute must be defined for <wizard> tag.');
@@ -65,6 +67,7 @@
       }
       $scope.currentIndex = index;
       steps[index].done = false;
+      $scope.openHelp = false;
     }
 
     function isFirstStep() {
@@ -118,7 +121,7 @@
         link($scope, element, attrs, workflows);
       },
       replace: true,
-      templateUrl: '/html/wizard.html'
+      templateUrl: '/framework/wizard/wizard.tpl.html'
     };
   }
 
@@ -127,4 +130,4 @@
     wizardDirectiveFactory
   ]);
 
-})();
+}());

@@ -3,7 +3,7 @@
 
   var rootApp = angular.module('hz', [
     'hz.framework',
-    'hz.app'
+    'hz.app',
   ]);
 
 })();

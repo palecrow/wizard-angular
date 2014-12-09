@@ -1,30 +1,16 @@
 <!doctype html>
 <html>
 <head>
-    <link href="/css/styles.css" rel="stylesheet"/>
+    <link href="index.css" rel="stylesheet"/>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.js"></script>
+    <script src="index.js"></script>
 
-    <script src="js/root.js"></script>
+    <script src="framework/module.js"></script>
+    <script src="framework/wizard/wizard.directive.js"></script>
 
-    <script src="js/framework/framework.module.js"></script>
-    <script src="js/framework/wizard/wizard.module.js"></script>
-    <script src="js/framework/wizard/wizard.directive.js"></script>
-
-    <script src="js/app/app.module.js"></script>
-    <script src="js/app/dashboard/dashboard.module.js"></script>
-    <script src="js/app/dashboard/dashboard.ctrl.js"></script>
-
-    <script src="js/app/launch-instance/launch-instance.module.js"></script>
-    <script src="js/app/launch-instance/launch-instance.ctrl.js"></script>
-    <script src="js/app/launch-instance/step1.js"></script>
-    <script src="js/app/launch-instance/step2.js"></script>
-    <script src="js/app/launch-instance/step3.js"></script>
-    <script src="js/app/launch-instance/step4.js"></script>
-
+    <script src="app/module.js"></script>
 </head>
-<body ng-controller="DashboardCtrl">
-    <button ng-click="launchInstance()">Launch Instance</button>
-    <wizard workflow="launch-instance" ng-controller="LaunchInstanceCtrl"></wizard>
+<body>
     <script>angular.bootstrap(document, ['hz']);</script>
 </body>
 </html>

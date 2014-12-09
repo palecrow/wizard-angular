@@ -1,5 +1,5 @@
 <div class="modal wizard"
-  ng-hide="!forcedOpen || allDone || canceled">
+  ng-hide="!forcedOpen || allDone || canceled || steps.length === 0">
 
   <div class="overlay"></div>
   <div class="light-box">
@@ -58,10 +58,10 @@
     <div class="help-panel"
       ng-class="{'open': openHelp}">
       <button class="open"
-        ng-click="openHelp=true">
+        ng-click="openHelp=true">?
       </button>
       <button class="close"
-        ng-click="openHelp=false">
+        ng-click="openHelp=false">X
       </button>
       <div class="content">
         <div class="page"
