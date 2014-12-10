@@ -94,24 +94,8 @@
   display: inline-block;
   vertical-align: top;
   position: relative;
-  width: 480px;
-  height: 320px;
-}
-
-.wizard .step * {
-  position: absolute;
-  text-align: center;
-}
-
-.wizard .step input {
-  top: 70px;
-  left: 10px;
-}
-
-.wizard .step label {
-  top: 68px;
-  left: 25px;
-  font-size: 11px;
+  width: 720px;
+  height: 600px;
 }
 
 .wizard .step h1 {
@@ -122,6 +106,7 @@
   font-size: 18px;
   font-weight: normal;
   margin-top: 20px;
+  margin-bottom: 10px;
   line-height: 1.5;
   border-bottom: 1px solid #ddd;
 }
@@ -224,9 +209,6 @@
     overflow-y: visible;
   }
 
-    .wizard .help-panel .content .page {
-    }
-
   .wizard .help-panel.open {
     right: 0;
   }
@@ -241,7 +223,7 @@
 
   .wizard .help-panel > button {
     position: absolute;
-    top: 15px;
+    top: 7px;
     left: -35px;
     width: 35px;
     height: 35px;

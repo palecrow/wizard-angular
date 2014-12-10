@@ -18,6 +18,7 @@
     <script src="index.js"></script>
     <script src="/framework/module.js"></script>
     <script src="/app/module.js"></script>
+    <script src="/app/launch-instance/module.js"></script>
 </head>
 <body>
     <script>
@@ -38,7 +39,7 @@
         // If you want to test a directive with external template, you need to add
         // the templateUrl value to this list:
         [ 
-            '/html/wizard.html'
+            '/framework/wizard/wizard.tpl.html'
 
         ].forEach(function (templateUrl) {
             testHelpers.cacheTemplate(templateUrl, app);
@@ -49,6 +50,8 @@
     <!-- include spec files here... -->
     <script src="/index.spec.js"></script>
     <script src="/framework/module.spec.js"></script>
+    <script src="/framework/wizard/wizard.spec.js"></script>
     <script src="/app/module.spec.js"></script>
+    <script src="/app/launch-instance/module.spec.js"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-describe('hz.framework.wizard wizard.directive test', function () {
+describe('hz.framework.wizard wizard.directive spec', function () {
   var $compile,
       $scope;
 

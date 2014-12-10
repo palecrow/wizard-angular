@@ -3,16 +3,16 @@
 
   var module = angular.module('hz.framework.wizard', []);
 
-  function link($scope, element, attrs, workflows) {
+  function link($scope, element, attrs, workflowManager) {
     if (!attrs.workflow) {
       console.error('"workflow" attribute must be defined for <wizard> tag.');
       return;
     }
 
-    var workflow = workflows[attrs.workflow];
+    var workflow = workflowManager.getWorkflow(attrs.workflow);
 
     if (!workflow) {
-      console.error('Workflow with name "' + attrs.workflow + '" must be defined.');
+      console.error('Workflow with name "' + attrs.workflow + '" is not defined.');
       return;
     }
 
@@ -115,10 +115,10 @@
     $scope.$on(workflow.openEventName, open);
   }
 
-  function wizardDirectiveFactory(workflows) {
+  function wizardDirectiveFactory(workflowManager) {
     return {
       link: function ($scope, element, attrs) {
-        link($scope, element, attrs, workflows);
+        link($scope, element, attrs, workflowManager);
       },
       replace: true,
       templateUrl: '/framework/wizard/wizard.tpl.html'
@@ -126,7 +126,7 @@
   }
 
   angular.module('hz.framework.wizard').directive('wizard', [
-    'workflows',
+    'workflowManager',
     wizardDirectiveFactory
   ]);
 

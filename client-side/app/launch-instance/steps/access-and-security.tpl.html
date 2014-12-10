@@ -1,0 +1,7 @@
+<h1 ng-bind="step.title"></h1>
+<div 
+  ng-controller="SelectSourceCtrl"
+  ng-init="step=steps[$index];">
+  <label>check to validate this step</lavel>
+  <input type="checkbox" ng-model="checked"/>
+</div>
