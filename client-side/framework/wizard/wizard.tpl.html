@@ -55,22 +55,11 @@
       </div>
     </div>
 
-    <div class="help-panel"
-      ng-class="{'open': openHelp}">
-      <button class="open"
-        ng-click="openHelp=true">?
-      </button>
-      <button class="close"
-        ng-click="openHelp=false">X
-      </button>
-      <div class="content">
-        <div class="page"
-          ng-include src="step.helpUrl"
-          ng-repeat="step in steps"
-          ng-show="isCurrent($index)">
-        </div>
-      </div>
-    </div>
-
+    <help-panel>
+      <ng-include src="step.helpUrl"
+        ng-repeat="step in steps"
+        ng-show="isCurrent($index)">
+      </ng-include>
+    </help-panel>
   </div>
 </div>

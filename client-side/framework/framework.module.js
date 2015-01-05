@@ -1,9 +1,10 @@
 (function () {
  'use strict';
 
-  angular.module('hz.framework', [
-    'hz.framework.workflow',
-    'hz.framework.wizard'
+  var module = angular.module('hz.framework', [
+    'hz.framework.help-panel',
+    'hz.framework.wizard',
+    'hz.framework.workflow'
   ]);
 
 })();

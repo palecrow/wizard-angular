@@ -1,8 +1,6 @@
 (function () {
   'use strict';
 
-  var module = angular.module('hz.framework.wizard', []);
-
   function link($scope, element, attrs, workflowManager) {
     if (!attrs.workflow) {
       console.error('"workflow" attribute must be defined for <wizard> tag.');

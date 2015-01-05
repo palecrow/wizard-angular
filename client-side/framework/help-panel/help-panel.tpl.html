@@ -1,0 +1,11 @@
+<div class="help-panel"
+  ng-class="{'open': openHelp}">
+  <button class="open"
+    ng-click="openHelp=true">?
+  </button>
+  <button class="close"
+    ng-click="openHelp=false">X
+  </button>
+  <div class="content" ng-transclude>
+  </div>
+</div>

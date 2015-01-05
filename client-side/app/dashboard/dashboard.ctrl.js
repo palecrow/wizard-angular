@@ -4,6 +4,7 @@
   function DashboardCtrl($scope, events) {
 
     function launchInstance() {
+      console.log('launchInstance button was clicked');
       $scope.$broadcast(events.OPEN_LAUNCH_INSTANCE_WIZARD_EVENT);
     }
 
