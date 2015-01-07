@@ -2,8 +2,11 @@
 
 var del       = require('del');
 var gulp      = require('gulp');
+var inject    = require('gulp-inject');
 var jshint    = require('gulp-jshint');
 var sass      = require('gulp-sass');
+var rename    = require('gulp-rename');
+
 
 var root = '../';
 
@@ -13,8 +16,19 @@ var paths = {
   server: root + 'server-side/'
 };
 
+var jsSourceFiles = [
+  paths.client + 'index.js',
+  paths.client + 'framework/**/*.module.js',
+  paths.client + 'framework/**/*.js',
+  paths.client + 'app/**/*.module.js',
+  paths.client + 'app/**/*.js',
+  '!' + paths.client + '**/*.spec.js',
+  '!' + paths.client + '**/*.test.js',
+  '!' + paths.client + 'lib/**/*.js'
+];
+
 gulp.task('lint', function () {
-  return gulp.src([paths.client + 'app/**/*.js', paths.client + 'framework/**/*.js'])
+  return gulp.src(jsSourceFiles)
     .pipe(jshint())
     .pipe(jshint.reporter('default'));
 });
@@ -34,6 +48,15 @@ gulp.task('clean', function (callback) {
   del([paths.client + '**/*.css', '!' + paths.client + 'lib/**/*.css'], {
     force: true
   }, callback);
+});
+
+gulp.task('index', function () {
+  var target = gulp.src(paths.client + '_index.html');
+  var sources = gulp.src(jsSourceFiles, { read: false });
+
+  return target.pipe(inject(sources, { relative: true }))
+    .pipe(rename('index.html'))
+    .pipe(gulp.dest(paths.client));
 });
 
 gulp.task('default', ['lint', 'sass', 'watch']);

@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+<head>
+  <!-- inject:css -->
+  <!-- endinject -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.js"></script>
+  <!-- inject:js -->
+  <!-- endinject -->
+</head>
+<body ng-controller="DashboardCtrl">
+  <button ng-click="launchInstance()">Launch Instance</button>
+  <wizard workflow="launch-instance" ng-controller="LaunchInstanceCtrl"></wizard>
+  <script>angular.bootstrap(document, ['hz']);</script>
+</body>
+</html>
