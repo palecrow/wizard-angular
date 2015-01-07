@@ -26,8 +26,8 @@ gulp.task('sass', function () {
 });
 
 gulp.task('watch', function () {
-    gulp.watch(paths.client + '**/*.js', ['lint']);
-    gulp.watch(paths.client + '**/*.scss', ['sass']);
+  gulp.watch(paths.client + '**/*.js', ['lint']);
+  gulp.watch(paths.client + '**/*.scss', ['sass']);
 });
 
 gulp.task('clean', function (callback) {

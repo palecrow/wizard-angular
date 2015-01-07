@@ -15,6 +15,7 @@
   <script src="app/dashboard/dashboard.module.js"></script>
   <script src="app/dashboard/dashboard.ctrl.js"></script>
   <script src="app/launch-instance/launch-instance.module.js"></script>
+  <script src="app/launch-instance/launch-instance.ctrl.js"></script>
   <script src="app/launch-instance/steps/select-source.ctrl.js"></script>
   <script src="app/launch-instance/steps/select-flavor.ctrl.js"></script>
   <script src="app/launch-instance/steps/network.ctrl.js"></script>
@@ -23,7 +24,7 @@
 </head>
 <body ng-controller="DashboardCtrl">
   <button ng-click="launchInstance()">Launch Instance</button>
-  <wizard workflow="launch-instance"></wizard>
+  <wizard workflow="launch-instance" ng-controller="LaunchInstanceCtrl"></wizard>
   <script>angular.bootstrap(document, ['hz']);</script>
 </body>
 </html>

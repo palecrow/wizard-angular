@@ -1,24 +1,20 @@
 (function () {
   'use strict';
 
-  function link($scope, element, attrs, workflowManager) {
+  function link($scope, element, attrs) {
+    console.log('link in directive');
+
     if (!attrs.workflow) {
       console.error('"workflow" attribute must be defined for <wizard> tag.');
       return;
     }
+    $scope.init(attrs.workflow);
+  }
 
-    var workflow = workflowManager.getWorkflow(attrs.workflow);
+  function controller($scope, workflowManager) {
+    console.log('controller in directive');
 
-    if (!workflow) {
-      console.error('Workflow with name "' + attrs.workflow + '" is not defined.');
-      return;
-    }
-
-    var steps = $scope.steps = workflow.steps;
-    $scope.title = workflow.title;
-    $scope.btnDisplayText = workflow.btnDisplayText;
-
-    reset();
+    var steps;
 
     function reset() {
       steps.forEach(function (step) {
@@ -30,6 +26,22 @@
       $scope.allDone = false;
       $scope.forcedOpen = false;
       $scope.openHelp = false;
+    }
+
+    function init(workflowAttrValue) {
+      var workflow = workflowManager.getWorkflow(workflowAttrValue);
+
+      if (!workflow) {
+        console.error('Workflow with name "' + workflowAttrValue + '" is not defined.');
+        return;
+      }
+
+      $scope.title = workflow.title;
+      $scope.btnDisplayText = workflow.btnDisplayText;
+      steps = $scope.steps = workflow.steps;
+      $scope.$on(workflow.openEventName, open);
+
+      reset();
     }
 
     function open() {
@@ -99,6 +111,7 @@
         !steps[index].done;
     }
 
+    $scope.init = init;
     $scope.switchTo = switchTo;
     $scope.isFirstStep = isFirstStep;
     $scope.isLastStep = isLastStep;
@@ -110,21 +123,18 @@
     $scope.allValid = allValid;
     $scope.shouldShow = shouldShow;
 
-    $scope.$on(workflow.openEventName, open);
   }
 
-  function wizardDirectiveFactory(workflowManager) {
+  function wizardDirectiveFactory() {
     return {
-      link: function ($scope, element, attrs) {
-        link($scope, element, attrs, workflowManager);
-      },
+      controller: ['$scope', 'workflowManager', controller],
+      link: link,
       replace: true,
       templateUrl: '/framework/wizard/wizard.tpl.html'
     };
   }
 
   angular.module('hz.framework.wizard').directive('wizard', [
-    'workflowManager',
     wizardDirectiveFactory
   ]);
 

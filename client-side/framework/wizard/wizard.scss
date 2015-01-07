@@ -6,184 +6,189 @@
   right: 0;
   bottom: 0;
   text-align: center;
-}
 
-.wizard * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  outline: none;
-  font-family: "Segoe UI Light","Segoe WPC","Segoe UI", Helvetica, Arial, "Arial Unicode MS", Sans-Serif;
-  font-weight: lighter;
-  list-style: none;
-  text-decoration: none;
-}
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    font-family: "Segoe UI Light", "Segoe WPC", "Segoe UI", Helvetica, Arial, "Arial Unicode MS", Sans-Serif;
+    font-weight: lighter;
+    list-style: none;
+    text-decoration: none;
+  }
 
-.wizard .overlay {
-  display: none;
-}
+  .overlay {
+    display: none;
+  }
 
-.wizard.modal .overlay {
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0,0,0,.8);
-}
+  &.modal .overlay {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, .8);
+  }
 
-.wizard .light-box {
-  position: relative;
-  display: inline-block;
-  z-index: 1000;
-  margin-top: 80px;
-  border: 1px solid #ddd;
-  background: white;
-  text-align: left;
-  overflow: hidden;
-}
+  .light-box {
+    position: relative;
+    display: inline-block;
+    z-index: 1000;
+    margin-top: 80px;
+    border: 1px solid #ddd;
+    background: white;
+    text-align: left;
+    overflow: hidden;
+  }
 
-.wizard .title {
-  height: 65px;
-  line-height: 65px;
-  vertical-align: top;
-  padding: 0 30px;
-  color: #444;
-  font-size: 20px;
-  border-bottom: 1px solid #ddd;
-  vertical-align: top;
-}
+  .title {
+    height: 65px;
+    line-height: 65px;
+    vertical-align: top;
+    padding: 0 30px;
+    color: #444;
+    font-size: 20px;
+    border-bottom: 1px solid #ddd;
+    vertical-align: top;
+  }
 
-.wizard .nav {
-  display: inline-block;
-  top: 40px;
-  left: 0px;
-  bottom: 40px;
-  width: 250px;
-  padding: 10px;
-}
+  .nav {
+    display: inline-block;
+    top: 40px;
+    left: 0px;
+    bottom: 40px;
+    width: 250px;
+    padding: 10px;
 
-.wizard .nav button {
-  display: block;
-  line-height: 40px;
-  height: 40px;
-  width: 100%;
-  text-align: left;
-  padding-left: 4px;
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid #ddd;
-  margin-top: -1px;
-  color: green;
-  background: rgba(0,255,0,.15);
-}
+    button {
+      display: block;
+      line-height: 40px;
+      height: 40px;
+      width: 100%;
+      text-align: left;
+      padding-left: 4px;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid #ddd;
+      margin-top: -1px;
+      color: green;
+      background: rgba(0, 255, 0, .15);
 
-.wizard .nav button[disabled] {
-  color: #ccc;
-  background: transparent;
-}
+      &[disabled] {
+        color: #ccc;
+        background: transparent;
+      }
 
-.wizard .nav button.current {
-  background: #0083d1;
-  color: #fff;
-  border-color: #0083d1;
-}
+      &.current {
+        background: #0083d1;
+        color: #fff;
+        border-color: #0083d1;
+      }
+    }
+  }
 
-.wizard .step {
-  display: inline-block;
-  vertical-align: top;
-  position: relative;
-  width: 720px;
-  height: 600px;
-}
+  .step {
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    width: 720px;
+    height: 600px;
 
-.wizard .step h1 {
-  top: 10px;
-  left: 10px;
-  right: 10px;
-  text-align: left;
-  font-size: 18px;
-  font-weight: normal;
-  margin-top: 20px;
-  margin-bottom: 10px;
-  line-height: 1.5;
-  border-bottom: 1px solid #ddd;
-}
+    h1 {
+      top: 10px;
+      left: 10px;
+      right: 10px;
+      text-align: left;
+      font-size: 18px;
+      font-weight: normal;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      line-height: 1.5;
+      border-bottom: 1px solid #ddd;
+    }
+  }
 
-.wizard .toolbar {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 65px;
-  line-height: 65px;
-  vertical-align: middle;
-  background: #efefef;
-  border-top: 1px solid #ddd;
-}
+  .toolbar {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 65px;
+    line-height: 65px;
+    vertical-align: middle;
+    background: #efefef;
+    border-top: 1px solid #ddd;
 
-.wizard .toolbar .secondary-btn-grp {
-  position: absolute;
-  left: 30px;
-}
+    .secondary-btn-grp {
+      position: absolute;
+      left: 30px;
+    }
 
-.wizard .toolbar .primary-btn-grp {
-  position: absolute;
-  right: 30px;
-}
+    .primary-btn-grp {
+      position: absolute;
+      right: 30px;
+    }
 
-.wizard .btn-wrap {
-  display: inline-block;
-}
+    .secondary-btn-grp button {
+      margin-right: 5px;
+    }
 
-.wizard .btn-wrap.finish {
-  padding-left: 15px;
-  margin-left: 20px;
-  border-left: 2px solid #ddd;
-}
+    .primary-btn-grp button {
+      margin-left: 5px;
+    }
+  }
 
-.wizard button {
-  height: 30px;
-  line-height: 30px;
-  vertical-align: middle;
-  padding: 0 30px;
-  font-size: 14px;
-  color: #666;
-  border: 1px solid #aaa;
-  border-radius: 2px;
-  background: #fff;
-}
+  .btn-wrap {
+    display: inline-block;
+  }
 
-.wizard button[disabled],
-.wizard button[disabled].next {
-  color: #ccc;
-  border-color: #ddd;
-  background: #fff;
-}
+  .btn-wrap.finish {
+    padding-left: 15px;
+    margin-left: 20px;
+    border-left: 2px solid #ddd;
+  }
 
-.wizard button.next {
-  color: rgba(255,255,255,.75);
-  border-color: #0083d1;
-  background: #0083d1;
-}
+  button {
+    height: 30px;
+    line-height: 30px;
+    vertical-align: middle;
+    padding: 0 30px;
+    font-size: 14px;
+    color: #666;
+    border: 1px solid #aaa;
+    border-radius: 2px;
+    background: #fff;
 
-.wizard button.finish {
-  color: rgba(255,255,255,.75);
-  border-color: #393;
-  background: #393;
-}
+    &[disabled],
+    &[disabled].next {
+      color: #ccc;
+      border-color: #ddd;
+      background: #fff;
+    }
 
-.wizard button.finish[disabled] {
-  color: #fff;
-  border-color: #ddd;
-  background: #bbb;
-}
+    &.next {
+      color: rgba(255, 255, 255, .75);
+      border-color: #0083d1;
+      background: #0083d1;
+    }
 
-.wizard .toolbar .secondary-btn-grp button {
-  margin-right: 5px;
-}
+    &.finish {
+      color: rgba(255, 255, 255, .75);
+      border-color: #393;
+      background: #393;
 
-.wizard .toolbar .primary-btn-grp button {
-  margin-left: 5px;
+      &[disabled] {
+        color: #fff;
+        border-color: #ddd;
+        background: #bbb;
+      }
+    }
+  }
+
+  .help-panel {
+    top: 65px;
+    bottom: 65px;
+  }
 }
