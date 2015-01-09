@@ -34,7 +34,7 @@ gulp.task('lint', function () {
 });
 
 gulp.task('sass', function () {
-  return gulp.src([paths.client + '**/*.scss'], {base: './'})
+  return gulp.src([paths.client + '**/*.scss'], { base: './' })
     .pipe(sass())
     .pipe(gulp.dest('./'));
 });
@@ -42,6 +42,7 @@ gulp.task('sass', function () {
 gulp.task('watch', function () {
   gulp.watch(paths.client + '**/*.js', ['lint']);
   gulp.watch(paths.client + '**/*.scss', ['sass']);
+  gulp.watch(paths.client + '_index.html', ['index']);
 });
 
 gulp.task('clean', function (callback) {
@@ -59,4 +60,10 @@ gulp.task('index', function () {
     .pipe(gulp.dest(paths.client));
 });
 
-gulp.task('default', ['lint', 'sass', 'watch']);
+/**
+ * Execute this task after adding/deleting CSS/JavaScript files,
+ * `watch` does not watch for adding/deleting files.
+ */
+gulp.task('update', ['clean', 'lint', 'sass', 'index', 'watch']);
+
+gulp.task('default', ['clean', 'lint', 'sass', 'index']);
