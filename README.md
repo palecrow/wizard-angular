@@ -13,7 +13,7 @@ npm install --global gulp
 ## Compile, install and run server with NodeJS
 
 ```shell
-$ cs [directory]
+$ cd [directory]
 $ cd tools/
 $ npm install
 $ gulp
