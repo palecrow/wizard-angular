@@ -22,9 +22,6 @@
         step.done = false;
       });
       $scope.currentIndex = 0;
-      $scope.canceled = false;
-      $scope.allDone = false;
-      $scope.forcedOpen = false;
       $scope.openHelp = false;
     }
 
@@ -46,17 +43,6 @@
 
     function open() {
       reset();
-      $scope.forcedOpen = true;
-    }
-
-    function cancel() {
-      $scope.canceled = true;
-      $scope.forcedOpen = false;
-    }
-
-    function finish() {
-      $scope.allDone = true;
-      $scope.forcedOpen = false;
     }
 
     function switchTo(index) {
@@ -118,11 +104,8 @@
     $scope.isCurrent = isCurrent;
     $scope.next = next;
     $scope.back = back;
-    $scope.finish = finish;
-    $scope.cancel = cancel;
     $scope.allValid = allValid;
     $scope.shouldShow = shouldShow;
-
   }
 
   function wizardDirectiveFactory() {
