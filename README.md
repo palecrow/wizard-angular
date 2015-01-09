@@ -2,16 +2,26 @@
 ```shell
 $ git clone https://github.com/sean-sq-chen/wizard-angular.git [directory]
 ```
-## Compile, install and run server with NodeJS
+
+## Install Gulp
+
+http://gulpjs.com/
 ```shell
+npm install --global gulp
+```
+
+## Compile, install and run server with NodeJS
+
+```shell
+$ cs [directory]
 $ cd tools/
 $ npm install
 $ gulp
 $ cd ../server-side/
 $ npm install
-$ node server.js [port number]
+$ npm start
 ```
 ## Generated files
 All generated files should not be edited, instead, edit their source files.
-* .css files, except for those in /client-side/lib/, are generated from .scss.
-* index.html is generated from _index.html.
+* `.css` files, except for those in `/client-side/lib/`, are generated from `.scss`.
+* `index.html` is generated from `_index.html`.
