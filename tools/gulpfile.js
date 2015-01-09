@@ -1,11 +1,12 @@
 'use strict';
 
-var del       = require('del');
-var gulp      = require('gulp');
-var inject    = require('gulp-inject');
-var jshint    = require('gulp-jshint');
-var sass      = require('gulp-sass');
-var rename    = require('gulp-rename');
+var del         = require('del');
+var gulp        = require('gulp');
+var inject      = require('gulp-inject');
+var jshint      = require('gulp-jshint');
+var sass        = require('gulp-sass');
+var rename      = require('gulp-rename');
+var runSequence = require('run-sequence');
 
 
 var root = '../';
@@ -64,6 +65,10 @@ gulp.task('index', function () {
  * Execute this task after adding/deleting CSS/JavaScript files,
  * `watch` does not watch for adding/deleting files.
  */
-gulp.task('update', ['clean', 'lint', 'sass', 'index', 'watch']);
+gulp.task('build', function (callback) {
+  runSequence('clean', ['lint', 'sass'], 'index', 'watch', callback);
+});
 
-gulp.task('default', ['clean', 'lint', 'sass', 'index']);
+gulp.task('default', function (callback) {
+  runSequence('clean', ['lint', 'sass'], 'index', callback);
+});
